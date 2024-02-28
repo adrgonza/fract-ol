@@ -29,7 +29,8 @@ void    init_data(char **argv, fractol *data)
     if (!ft_strncmp("Julia", argv[1], ft_strlen(argv[1])))
         data->type = JULIA;
     data->mlx = mlx_init();
-    data->mlx_win = mlx_new_window(data->mlx, 1920, 1080, "fractol");
+    data->mlx_win = mlx_new_window(data->mlx, SCREENX, SCREENY, "fractol");
+    data->mlx_img = mlx_new_image(data->mlx, SCREENX, SCREENY);
 }
 
 int exit_program(fractol *data)
@@ -42,12 +43,45 @@ int key_press(int key, fractol *data)
 {
     if (key == ESC)
         exit_program(data);
+    if (key == UP)
+        data->up = PRESS;
+    if (key == DOWN)
+        data->down = PRESS;
+    if (key == RIGHT)
+        data->right = PRESS;
+    if (key == LEFT)
+        data->left = PRESS;
     return (0);
 }
-void manage_hooks(fractol *data)
+
+int key_released(int key, fractol *data)
 {
-    mlx_hook(data->mlx_win, 2, 1L << 0, key_press, &data);
-    mlx_hook(data->mlx_win, 17, 0, exit_program, &data);
+    (void)data;
+    if (key == UP)
+        data->up = RELEASE;
+    if (key == DOWN)
+        data->down = RELEASE;
+    if (key == RIGHT)
+        data->right = RELEASE;
+    if (key == LEFT)
+        data->left = RELEASE;
+    return (0);
+}
+
+int mouse_manage(fractol *data)
+{
+
+}
+
+int manage_hooks(fractol *data)
+{
+    mlx_hook(data->mlx_win, 2, 1L << 0, key_press, data);
+    mlx_key_hook(data->mlx_win, key_released, data);
+    mlx_mouse_hook(data->mlx_win, mouse_manage, data);
+    // to paint and do fractals
+    mlx_put_image_to_window(data->mlx, data->mlx_win, data->mlx_img, 0, 0);
+    mlx_hook(data->mlx_win, 17, 0, exit_program, data);
+    return (0);
 }
 
 int main(int argc, char **argv)
@@ -57,8 +91,6 @@ int main(int argc, char **argv)
     if (!parse_arguments(argc, argv))
         return (1);
     init_data(argv, &data);
-    manage_hooks(&data);
-    
+    mlx_loop_hook(data.mlx, manage_hooks, &data);
     mlx_loop(data.mlx);
-    return (0);
 }
