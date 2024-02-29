@@ -15,7 +15,11 @@ OBJ = $(BIN)/obj
 
 # Files
 SRC_FILES = \
-        $(SRC)/main.c
+        $(SRC)/main.c \
+		$(SRC)/tools.c \
+		$(SRC)/hooks.c \
+		$(SRC)/fractals.c \
+		$(SRC)/drawing.c \
 
 OBJ_FILES = $(patsubst $(SRC)/%.c,$(OBJ)/%.o,$(SRC_FILES))
 

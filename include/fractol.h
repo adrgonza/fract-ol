@@ -46,4 +46,24 @@ typedef struct
 
 /* fractol functions */
 
-int main(int argc, char **argv);
+int     main(int argc, char **argv);
+
+/* tools */
+
+void    init_data(char **argv, fractol *data);
+int     exit_program(fractol *data);
+int     parse_arguments(int argc, char **argv);
+
+/* hooks */
+
+int     manage_hooks(fractol *data);
+int     key_press(int key, fractol *data);
+int     key_released(int key, fractol *data);
+int     mouse_manage(int key, int x, int y, fractol *data);
+
+/* drawing */
+
+void	my_mlx_pixel_put(fractol *data, int x, int y, int color);
+void    set_fractol(fractol *data);
+
+/* fractals */
