@@ -1,6 +1,7 @@
 #pragma once 
 
 #include <mlx.h>
+#include <math.h>
 #include "libft.h"
 
 typedef struct
@@ -8,13 +9,21 @@ typedef struct
     void    *mlx;
     void    *mlx_win;
     void    *mlx_img;
+    char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 
-    int     type;
 
     int     up;
     int     down;
     int     right;
     int     left;
+
+    int type;
+    int zoom;
+    int x;
+    int y;
 } fractol;
 
 #define MANDELBROT 0
@@ -26,11 +35,14 @@ typedef struct
 #define RIGHT 124
 #define LEFT 123
 
+#define SCROLLUP 4 
+#define SCROLLDOWN 5
+
 #define PRESS 1
 #define RELEASE 0
 
-#define SCREENX 500
-#define SCREENY 500
+#define SCREENX 1920
+#define SCREENY 1080
 
 /* fractol functions */
 

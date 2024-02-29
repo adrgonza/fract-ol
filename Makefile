@@ -3,7 +3,7 @@ NAME = fractol
 # Compiler options
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-FLAGS_MLX = -lmlx -framework OpenGL -framework AppKit
+FLAGS_MLX = -lmlx -framework OpenGL -framework AppKit -O3
 INCLUDES = -I./include -I./lib/libft
 
 # Folders
