@@ -1,6 +1,6 @@
-# Fract_ol
+# Fract-ol
 
-Welcome to Fract_ol! This project focuses on creating a fractal explorer program capable of rendering various types of fractals in real-time. By implementing this project, you'll gain a deeper understanding of graphics programming, fractal geometry, and interactive visualization techniques.
+Welcome to fract_ol! This project focuses on creating a fractal explorer program capable of rendering various types of fractals in real-time. By implementing this project, you'll gain a deeper understanding of graphics programming, fractal geometry, and interactive visualization techniques.
 
 ## Table of Contents
 
@@ -17,12 +17,12 @@ Fract_ol is a fractal explorer program that allows users to visualize and intera
 
 ## Usage
 
-To use Fract_ol, follow these steps:
+To use fract-ol, follow these steps:
 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/adrgonza/fract_ol.git
+    git clone https://github.com/adrgonza/fract-ol.git
     ```
 
 2. Build the program:
@@ -63,4 +63,4 @@ make
 Contributions are welcome! If you find any bugs or have suggestions for improvement, please open an issue or submit a pull request on GitHub.
 
 ## Credits
-This project was created by adrgonza for the fract_ol project at 42Madrid.
+This project was created by adrgonza for the fract-ol project at 42Madrid.
